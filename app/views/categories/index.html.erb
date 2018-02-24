@@ -3,12 +3,12 @@
 <% @categories.each do |item| %>
 	<li>
 		<%= item.name %> 
-		<%= button_to 'DEL', item, method: :delete %>
+		<%= link_to 'DEL', item, method: :delete %>
 	</li>
 <% end %>
 </ul>
 
-<%= form_for [@category] do |f| %>
+<%= form_for @category do |f| %>
 	<%= f.text_field :name %>
 	<%= f.submit %>
 <% end %>

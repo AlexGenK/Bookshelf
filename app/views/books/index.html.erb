@@ -1,0 +1,11 @@
+<h2>Index of books</h2>
+
+<%= link_to 'New book', new_book_path %>
+
+<% @books.each do |item| %>
+	<h3><%= item.title %></h3>
+	<p><%= item.description %></p>
+	<%= link_to 'DEL', item, method: :delete %> | 
+	<%= link_to 'EDIT', edit_book_path(item) %>
+	<hr>
+<% end %>

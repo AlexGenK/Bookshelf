@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
       redirect_to categories_path
     else
       flash[:alert] = 'Unable create category'
-      render action: new
+      render :new
     end
   end
 
