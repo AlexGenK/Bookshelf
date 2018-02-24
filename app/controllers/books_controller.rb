@@ -29,7 +29,7 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
-        redirect_to books_path, notice: 'Questionnaire was successfully updated.'
+        redirect_to books_path, notice: 'Book was successfully updated.'
       else
         flash[:alert] = 'Unable update book'
         render :edit
