@@ -4,6 +4,7 @@
 
 <% @books.each do |item| %>
 	<h3><%= item.title %></h3>
+	<%= image_tag item.cover.url(:medium) %>
 	<p><%= item.description %></p>
 	<%= link_to 'DEL', item, method: :delete %> | 
 	<%= link_to 'EDIT', edit_book_path(item) %>
