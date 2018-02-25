@@ -1,0 +1,11 @@
+<h2>Index of authors</h2>
+
+<%= link_to 'New author', new_author_path %>
+
+<% @authors.each do |item| %>
+	<h3><%= item.name %></h3>
+	<p><%= item.bio %></p>
+	<%= link_to 'DEL', item, method: :delete %> | 
+	<%= link_to 'EDIT', edit_author_path(item) %>
+	<hr>
+<% end %>

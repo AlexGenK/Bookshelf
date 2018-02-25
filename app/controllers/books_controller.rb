@@ -14,7 +14,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to books_path
     else
-      flash[:alert] = 'Unable create book'
+      flash[:alert] = 'Unable create the book'
       render :new
     end
   end
@@ -31,7 +31,7 @@ class BooksController < ApplicationController
     if @book.update(book_params)
         redirect_to books_path, notice: 'Book was successfully updated.'
       else
-        flash[:alert] = 'Unable update book'
+        flash[:alert] = 'Unable update the book'
         render :edit
       end
   end
