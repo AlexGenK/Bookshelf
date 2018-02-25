@@ -1,0 +1,9 @@
+<h3><%= @author.name %></h3>
+<p><%= @author.bio %></p>
+<%= link_to 'DEL', @author, method: :delete %> | 
+<%= link_to 'EDIT', edit_author_path(@author) %>
+<hr>
+<h4>Authors books:</h4>
+<% @author.books.each do |book| %>
+	<%= book.title %><br>
+<% end %>

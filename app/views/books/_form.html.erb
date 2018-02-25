@@ -2,7 +2,10 @@
 	<%= f.label :cover %><br>
 	<%= image_tag book.cover.url(:medium) %><br>
 	<%= f.file_field :cover %><br>
-	<%= f.label :title %>
+	<%= hidden_field_tag "book[author_ids][]", nil %>
+  	<%= label_tag "book[author_ids][]", "Автор:" %>
+	<%= select_tag "book[author_ids][]", options_from_collection_for_select(Author.all, "id", "name", book.authors.collect(&:id)), multiple: true %><br>
+  	<%= f.label :title %>
 	<%= f.text_field :title %><br>
 	<%= f.label :description %>
 	<%= f.text_field :description %><br>
