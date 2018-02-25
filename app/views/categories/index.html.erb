@@ -2,8 +2,8 @@
 <ul>
 <% @categories.each do |item| %>
 	<li>
-		<%= item.name %> 
-		<%= link_to 'DEL', item, method: :delete %>
+		<p><%= link_to item.name, item %><%= " (#{item.books.count} books)" %>
+		<%= link_to 'DEL', item, method: :delete %></p>
 	</li>
 <% end %>
 </ul>

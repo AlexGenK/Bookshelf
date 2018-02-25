@@ -1,8 +1,12 @@
 class CategoriesController < ApplicationController
+   before_action :set_category, only: [:show, :destroy]
 
   def index
     @categories = Category.order(:name)
     @category = Category.new
+  end
+
+  def show
   end
 
   def create
@@ -16,11 +20,15 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    Category.find(params[:id]).destroy
+    @category.destroy
     redirect_to categories_path
   end
 
   private
+
+  def set_category
+    @category = Category.find(params[:id])
+  end
 
   def category_params
     params.require(:category).permit(:name)

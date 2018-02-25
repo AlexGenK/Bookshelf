@@ -29,7 +29,11 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
-        redirect_to books_path, notice: 'Book was successfully updated.'
+        if params[:commit] == 'Change category'
+          redirect_back fallback_location: root_path, notice: 'Book category was successfully updated.'
+        else
+          redirect_to books_path, notice: 'Book was successfully updated.'
+        end
       else
         flash[:alert] = 'Unable update the book'
         render :edit

@@ -1,0 +1,11 @@
+<h2><%= @category.name %></h2>
+<ul>
+<% @category.books.each do |book| %>
+	<li><%= book.title %>
+	<%= form_for book do |f| %>
+		<%= f.select :category_id, Category.all.collect{|c| [c.name, c.id]} %>
+		<%= f.submit "Change category" %>
+	<% end %>
+	</li>
+<% end %>
+</ul>
