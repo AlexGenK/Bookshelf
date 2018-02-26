@@ -3,8 +3,10 @@
 <%= link_to 'New author', new_author_path %>
 
 <% @authors.each do |item| %>
-	<h3><%= link_to item.name, author_path(item) %></h3>
-	<%= link_to 'DEL', item, method: :delete %> | 
-	<%= link_to 'EDIT', edit_author_path(item) %>
+	<% books_count = item.books.count %>
+	<p><%= link_to item.name, author_path(item) %><%= " (#{books_count} books)" %>
+	<%= link_to 'EDIT', edit_author_path(item) %> 
+	<%= link_to 'DEL', item, method: :delete if books_count == 0 %>
+	</p>
 	<hr>
 <% end %>

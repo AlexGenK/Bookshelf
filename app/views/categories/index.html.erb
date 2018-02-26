@@ -2,8 +2,9 @@
 <ul>
 <% @categories.each do |item| %>
 	<li>
-		<p><%= link_to item.name, item %><%= " (#{item.books.count} books)" %>
-		<%= link_to 'DEL', item, method: :delete %></p>
+		<% books_count = item.books.count %>
+		<p><%= link_to item.name, item %><%= " (#{books_count} books)" %>
+		<%= link_to 'DEL', item, method: :delete if books_count == 0 %></p>
 	</li>
 <% end %>
 </ul>
