@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:edit, :update, :destroy]
-
+  load_and_authorize_resource
+  
   def index
     @books = Book.order(:title)
   end

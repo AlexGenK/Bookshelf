@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
    before_action :set_category, only: [:show, :destroy]
+   load_and_authorize_resource
 
   def index
     @categories = Category.order(:name)
