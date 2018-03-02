@@ -6,7 +6,7 @@
 	<% books_count = item.books.count %>
 	<p><%= link_to item.name, author_path(item) %><%= " (#{books_count} books)" %>
 	<%= link_to 'EDIT', edit_author_path(item) %> 
-	<%= link_to 'DEL', item, method: :delete if books_count == 0 %>
+	<%= link_to 'DEL', item, method: :delete, data: { confirm: 'Are you sure?' } if books_count == 0 %>
 	</p>
 	<hr>
 <% end %>

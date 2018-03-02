@@ -7,7 +7,7 @@
 	<h4>Authors: <%= item.authors.map(&:name).join(', ') %></h4>
 	<%= image_tag item.cover.url(:medium) %>
 	<p><%= item.description %></p>
-	<%= link_to 'DEL', item, method: :delete %> | 
+	<%= link_to 'DEL', item, method: :delete, data: { confirm: 'Are you sure?' } %> | 
 	<%= link_to 'EDIT', edit_book_path(item) %>
 	<hr>
 <% end %>
