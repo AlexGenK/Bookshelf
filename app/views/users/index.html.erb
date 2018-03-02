@@ -12,13 +12,16 @@
 			<td><%= user.username %></td>
 			<td>
 			<%= form_for user do |f| %>
+				<%= label_tag 'Superadmin: ' %>
 				<%= f.check_box :superadmin_role %>
+				<%= label_tag 'Books admin: ' %>
 				<%= f.check_box :admin_books_role %>
+				<%= label_tag 'Cat. admin: ' %>
 				<%= f.check_box :admin_categories_role %>
-				<%= f.submit 'Update roles' %>
+				<%= f.submit 'Update' %>
 			<% end %>
 			</td>
-			<td><%= link_to 'DEL', user, method: :delete %></td>
+			<td><%= link_to 'Delete User', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
 	<% end %>
 	</tbody>
