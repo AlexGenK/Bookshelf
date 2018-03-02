@@ -2,6 +2,8 @@ class Category < ApplicationRecord
   has_many :books
   
   def self.default_category
-    Category.find_by name: 'Прочее'
+    category = Category.find_by(name: 'Other')
+    return Category.create(name: 'Other') unless category
+    return category
   end
 end
