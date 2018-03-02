@@ -1,12 +1,9 @@
-<h2>Index of authors</h2>
+<h4>Index of authors</h4>
 
-<%= link_to 'New author', new_author_path %>
+<p><%= link_to 'Add author', new_author_path, class: "btn btn-primary" %></p>
 
-<% @authors.each do |item| %>
-	<% books_count = item.books.count %>
-	<p><%= link_to item.name, author_path(item) %><%= " (#{books_count} books)" %>
-	<%= link_to 'EDIT', edit_author_path(item) %> 
-	<%= link_to 'DEL', item, method: :delete, data: { confirm: 'Are you sure?' } if books_count == 0 %>
-	</p>
-	<hr>
-<% end %>
+<ul class="list-group">
+	<% @authors.each do |item| %>
+		<li class="list-group-item"><%= link_to item.name, author_path(item) %> <span class="badge badge-light"><%= "#{item.books.count} books" %></span></li>
+	<% end %>
+</ul>

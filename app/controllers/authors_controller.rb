@@ -7,6 +7,7 @@ class AuthorsController < ApplicationController
   end
 
   def show
+    @author_books = @author.books.order(:title)
   end
 
   def new

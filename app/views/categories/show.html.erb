@@ -1,11 +1,12 @@
-<h2><%= @category.name %></h2>
-<ul>
+<h4>List of books in the <%= @category.name %> cathegory</h4>
+<ul class="list-group">
 <% @category.books.each do |book| %>
-	<li><%= book.title %>
+	<li class="list-group-item"><%= book.title %>
 	<%= form_for book do |f| %>
-		<%= f.select :category_id, Category.all.collect{|c| [c.name, c.id]} %>
-		<%= f.submit "Change category" %>
+		<%= f.select :category_id, Category.all.collect{|c| [c.name, c.id]}, {}, { class: "form-control" } %>
+		<%= f.submit "Change category", class: "btn btn-primary" %>
 	<% end %>
 	</li>
 <% end %>
 </ul>
+<%= link_to '<< Back', categories_path %>

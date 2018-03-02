@@ -1,13 +1,29 @@
-<h2>Index of books</h2>
+<h4>Index of books</h4>
 
-<%= link_to 'New book', new_book_path %>
+<p><%= link_to 'New book', new_book_path, class: "btn btn-primary" %></p>
 
-<% @books.each do |item| %>
-	<h3><%= item.title %></h3>
-	<h4>Authors: <%= item.authors.map(&:name).join(', ') %></h4>
-	<%= image_tag item.cover.url(:medium) %>
-	<p><%= item.description %></p>
-	<%= link_to 'DEL', item, method: :delete, data: { confirm: 'Are you sure?' } %> | 
-	<%= link_to 'EDIT', edit_book_path(item) %>
-	<hr>
-<% end %>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Cover</th>
+			<th>Title</th>
+			<th>Author(s)</th>
+			<th>Description</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @books.each do |item| %>
+		<tr>
+			<td><%= image_tag item.cover.url(:thumb) %></td>
+			<td><%= item.title %></td>
+			<td><%= item.authors.map(&:name).join(', ') %></td>
+			<td><%= item.description %></td>
+			<td>
+				<p><%= link_to 'Edit', edit_book_path(item), class: "btn btn-primary btn-block" %></p>
+				<p><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-block" %></p>
+			</td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>

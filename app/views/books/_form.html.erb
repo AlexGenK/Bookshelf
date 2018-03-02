@@ -1,13 +1,20 @@
 <%= form_for book, html: { multipart: true } do |f| %>
-	<%= f.label :cover %><br>
-	<%= image_tag book.cover.url(:medium) %><br>
-	<%= f.file_field :cover %><br>
+	<div class="form-group">
+		<%= image_tag book.cover.url(:medium) %>
+		<%= f.file_field :cover, class: "form-control" %>
+	</div>
+	<div class="form-group">
+	  	<%= f.label :title %>
+		<%= f.text_field :title, class: "form-control" %>
+	</div>
 	<%= hidden_field_tag "book[author_ids][]", nil %>
-  	<%= label_tag "book[author_ids][]", "Автор:" %>
-	<%= select_tag "book[author_ids][]", options_from_collection_for_select(Author.all, "id", "name", book.authors.collect(&:id)), multiple: true, class: 'selectpicker', data: { 'live-search' => 'true' } %><br>
-  	<%= f.label :title %>
-	<%= f.text_field :title %><br>
-	<%= f.label :description %>
-	<%= f.text_field :description %><br>
-	<%= f.submit %>
+	<div class="form-group">
+	  	<%= label_tag "book[author_ids][]", "Автор:" %>
+		<%= select_tag "book[author_ids][]", options_from_collection_for_select(Author.all, "id", "name", book.authors.collect(&:id)), multiple: true, class: 'selectpicker form-control', data: { 'live-search' => 'true' } %>
+	</div>
+	<div class="form-group">
+		<%= f.label :description %>
+		<%= f.text_area :description, rows: 3, class: "form-control" %>
+	</div>
+	<%= f.submit class: "btn btn-primary" %>
 <% end %>

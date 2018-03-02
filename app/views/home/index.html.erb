@@ -1,37 +1,35 @@
-<div class='container'>
-	<h2>Bookshelf</h2>
+<h4>My bookshelf</h4>
 
-	<div id="accordion">
-		<% btn_class='' %>
-		<% body_class='show' %>
-		<% @categories.each do |cat| %>
-			<div class="card">
-				<div class="card-header" id='<%= "heading#{cat.id}"%>'>
-					<h5 class="mb-0">
-						<button class="btn btn-link <%= btn_class %>" data-toggle="collapse" data-target='#collapse<%= "heading#{cat.id}"%>'>
-							<%= "#{cat.name} (#{cat.books.count} books)" %>
-						</button>
-					</h5>
-				</div>
-				<div id='collapse<%= "heading#{cat.id}"%>' class="collapse <%= body_class %>" data-parent="#accordion">
-					<div class='row p-1'>
-					<% cat.books.order(:title).each do |b| %>
-						<div class="col-md-6">
-							<div class="card flex-md-row mb-1 box-shadow">
-								<div class="card-body d-flex flex-column align-items-start">
-									<h5><%= b.title %></h5>
-									<div class="mb-1 text-muted"><%= b.authors.map(&:name).join(', ') %></div>
-									<p class="card-text mb-auto"><%= b.description %></p>
-								</div>
-								<%= image_tag b.cover.url(:medium), class: 'card-img-right d-none d-md-block cover-book' %>
+<div id="accordion">
+	<% btn_class='' %>
+	<% body_class='show' %>
+	<% @categories.each do |cat| %>
+		<div class="card">
+			<div class="card-header" id='<%= "heading#{cat.id}"%>'>
+				<h5 class="mb-0">
+					<button class="btn btn-link <%= btn_class %>" data-toggle="collapse" data-target='#collapse<%= "heading#{cat.id}"%>'>
+						<%= "#{cat.name} (#{cat.books.count} books)" %>
+					</button>
+				</h5>
+			</div>
+			<div id='collapse<%= "heading#{cat.id}"%>' class="collapse <%= body_class %>" data-parent="#accordion">
+				<div class='row p-1'>
+				<% cat.books.order(:title).each do |b| %>
+					<div class="col-md-6">
+						<div class="card flex-md-row mb-1 box-shadow">
+							<div class="card-body d-flex flex-column align-items-start">
+								<h5><%= b.title %></h5>
+								<div class="mb-1 text-muted"><%= b.authors.map(&:name).join(', ') %></div>
+								<p class="card-text mb-auto"><%= b.description %></p>
 							</div>
+							<%= image_tag b.cover.url(:medium), class: 'card-img-right d-none d-md-block cover-book' %>
 						</div>
-					<% end %>
 					</div>
+				<% end %>
 				</div>
 			</div>
-			<% btn_class='collapsed' %>
-			<% body_class='' %>
-		<% end %>
-	</div>
+		</div>
+		<% btn_class='collapsed' %>
+		<% body_class='' %>
+	<% end %>
 </div>
