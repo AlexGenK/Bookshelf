@@ -4,7 +4,7 @@
 	<% btn_class='' %>
 	<% body_class='show' %>
 	<% @categories.each do |cat| %>
-		<div class="card">
+		<div class="card category-card">
 			<div class="card-header" id='<%= "heading#{cat.id}"%>'>
 				<h5 class="mb-0">
 					<button class="btn btn-link <%= btn_class %>" data-toggle="collapse" data-target='#collapse<%= "heading#{cat.id}"%>'>
@@ -16,7 +16,7 @@
 				<div class='row p-1'>
 				<% cat.books.order(:title).each do |b| %>
 					<div class="col-md-6">
-						<div class="card flex-md-row mb-1 box-shadow">
+						<div class="card flex-md-row mb-1 box-shadow book-card">
 							<div class="card-body d-flex flex-column align-items-start">
 								<h5><%= b.title %></h5>
 								<div class="mb-1 text-muted"><%= b.authors.map(&:name).join(', ') %></div>
