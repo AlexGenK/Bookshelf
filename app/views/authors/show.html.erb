@@ -1,6 +1,6 @@
 <h4><%= @author.name %></h4>
 <p><%= @author.bio %></p>
-<%= link_to 'Edit', edit_author_path(@author), class: "btn btn-primary" %> 
+<%= link_to 'Edit', edit_author_path(@author), class: "btn btn-outline-primary" %> 
 <%= link_to 'Delete', @author, class: "btn btn-danger #{@author.books.count==0 ? '' : 'disabled'}", method: :delete, data: { confirm: 'Are you sure?' } %> 
 <hr>
 <h5>Authors books:</h5>

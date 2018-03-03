@@ -1,6 +1,6 @@
 <h4>Index of books</h4>
 
-<p><%= link_to 'New book', new_book_path, class: "btn btn-primary" %></p>
+<p><%= link_to 'New book', new_book_path, class: "btn-outline-primary" %></p>
 
 <table class="table">
 	<thead>
@@ -20,7 +20,7 @@
 			<td><%= item.authors.map(&:name).join(', ') %></td>
 			<td><%= item.description %></td>
 			<td>
-				<p><%= link_to 'Edit', edit_book_path(item), class: "btn btn-primary btn-block" %></p>
+				<p><%= link_to 'Edit', edit_book_path(item), class: "btn btn-outline-primary btn-block" %></p>
 				<p><%= link_to 'Delete', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-block" %></p>
 			</td>
 		</tr>
