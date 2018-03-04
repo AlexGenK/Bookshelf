@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :book, class: Book do
-    sequence(:title) { |n| "book#{n}" }
-    description "lorem ipsum"
+    sequence(:title) { |n| "Book #{n}" }
+    description "Lorem ipsum"
     association :category, factory: :category
 
     after(:create) do |book, evaluator|
