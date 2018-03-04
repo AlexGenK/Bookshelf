@@ -19,7 +19,7 @@ RSpec.describe BooksController, type: :controller do
   end
 
   describe "GET #new" do
-    it "assign a new instance of Book class to @book" do
+    it "assign a new instance of Book class to new book" do
       get :new
       expect(assigns(:book).instance_of?(Book)).to be_truthy
     end
@@ -52,7 +52,7 @@ RSpec.describe BooksController, type: :controller do
         expect { subject }.to change(Book, :count).by(1)
     end
 
-    it "redirect to authors#index" do
+    it "redirect to books#index" do
         expect(subject).to redirect_to(Book)
     end
   end
@@ -68,7 +68,7 @@ RSpec.describe BooksController, type: :controller do
         expect(@book.description).to eq('Ipsum lorem')
     end
 
-    it "redirect to book#index" do
+    it "redirect to books#index" do
         expect(subject).to redirect_to(Book) 
     end
   end
@@ -81,7 +81,7 @@ RSpec.describe BooksController, type: :controller do
       expect { subject }.to change(Book, :count).by(-1)
     end
 
-    it "redirects to book#index" do
+    it "redirects to books#index" do
       subject
       expect(subject).to redirect_to(Book)
     end

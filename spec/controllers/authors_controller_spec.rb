@@ -33,7 +33,7 @@ RSpec.describe AuthorsController, type: :controller do
   end
 
   describe "GET #new" do
-    it "assign a new instance of Author class to @author" do
+    it "assign a new instance of Author class to new author" do
       get :new
       expect(assigns(:author).instance_of?(Author)).to be_truthy
     end
