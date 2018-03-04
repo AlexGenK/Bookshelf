@@ -13,7 +13,7 @@
 <ul class="list-group">
 <% @categories.each do |item| %>
 	<% books_count = item.books.count %>
-	<li class="list-group-item">
+	<li class="list-group-item category">
 		<%= link_to item.name, item %><span class="badge badge-light"><%= "#{books_count} books" %></span>
 		<%= link_to 'Delete', item, method: :delete, class: "btn btn-danger float-right #{books_count==0 ? '' : 'disabled'}", data: { confirm: 'Are you sure?' } %>
 	</li>
