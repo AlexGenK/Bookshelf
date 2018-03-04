@@ -34,7 +34,7 @@ class AuthorsController < ApplicationController
 
   def update
     if @author.update(author_params)
-        redirect_to authors_path, notice: 'Author was successfully updated.'
+        redirect_to @author, notice: 'Author was successfully updated.'
       else
         flash[:alert] = 'Unable update the author'
         render :edit
