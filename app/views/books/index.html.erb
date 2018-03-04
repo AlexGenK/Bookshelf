@@ -14,7 +14,7 @@
 	</thead>
 	<tbody>
 	<% @books.each do |item| %>
-		<tr>
+		<tr class="book">
 			<td><%= image_tag item.cover.url(:thumb) %></td>
 			<td><%= item.title %></td>
 			<td><%= item.authors.map(&:name).join(', ') %></td>
