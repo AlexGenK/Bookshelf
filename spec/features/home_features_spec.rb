@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'View bookshelf', type: :feature do
+feature 'View bookshelf and access to admin area', type: :feature do
   before do 
     @category = create(:category)
     @book = create(:book)
