@@ -17,6 +17,7 @@ class Ability
     if user.admin_categories_role?
       can :manage, Category
       can :manage, Author
+      can :update, Book
     end
 
     # Define abilities for the passed in user here. For example:
