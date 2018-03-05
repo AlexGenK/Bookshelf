@@ -1,24 +1,9 @@
-# README
+# BOOKSHELF
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple app for books catologisation with grouping on categories and authors with admin area. Authorisation and authentication based on devise and cancancan gem. The application is covered by tests on rspec.
 
-Things you may want to cover:
+Were used:
 
-* Ruby version
+* Ruby 2.3.1
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Rails 5.1.4
