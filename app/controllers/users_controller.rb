@@ -8,12 +8,20 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params) ? flash[:notice] = 'Roles was successfully updated' : flash[:alert] = 'Unable update roles of the user'
+    if (@user.superadmin_role?) && (User.where(superadmin_role: true).count <= 1) && (user_params[:superadmin_role] == "0")
+      flash[:alert] = 'Unable delete last superadmin role'
+    else
+      @user.update(user_params) ? flash[:notice] = 'Roles was successfully updated' : flash[:alert] = 'Unable update roles of the user'
+    end
     redirect_to users_path
   end
 
   def destroy
-    @user.destroy ? flash[:notice] = 'User was destroyed' : flash[:alert] = 'Unable destroy that user'
+    if (@user.superadmin_role?) && (User.where(superadmin_role: true).count <= 1)
+      flash[:alert] = 'Unable delete last superadmin'
+    else
+      @user.destroy ? flash[:notice] = 'User was deleted' : flash[:alert] = 'Unable deleted that user'
+    end
     redirect_to users_path
   end
 
