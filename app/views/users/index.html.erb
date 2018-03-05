@@ -12,7 +12,7 @@
 	</thead>
 	<tbody>
 	<% @users.each do |user| %>
-		<tr>
+		<tr class="user">
 			<td><%= user.username %></td>
 			<td>
 			<%= form_for user do |f| %>
@@ -28,7 +28,7 @@
 					<%= f.check_box :admin_categories_role, class: "form-check-input" %>
 					<%= label_tag 'Category admin', nil, class: "form-check-label" %>
 				</div>
-				<%= f.submit 'Update', class: "btn btn-outline-primary" %>
+				<%= f.submit 'Update', class: "btn btn-outline-primary update-role" %>
 			<% end %>
 			</td>
 			<td><%= link_to 'Delete User', user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-block" %></td>
